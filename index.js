@@ -35,4 +35,20 @@ client.on('message', message => {
   }
 });
 
+client.on('message', message => {
+  // Ignore messages sent by the bot itself
+  if (message.author.bot) return;
+
+  // Convert the message to lowercase for easier comparison
+  const lowercaseMessage = message.content.toLowerCase();
+
+  // Check if the message includes any of the trigger words
+    if (lowercaseMessage.includes("amogus")) {
+
+      message.channel.send("");
+      console.log(`noen sa noe med sus så jeg svarte med noe enda mer sus`);
+      break; // We only want to send one response, so we can exit the loop after finding a trigger word
+    }
+});
+
 client.login('bot-token');
